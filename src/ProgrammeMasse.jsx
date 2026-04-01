@@ -419,8 +419,8 @@ const EXERCISE_IMAGES = {
     end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Lying_Leg_Curls/1.jpg",
   },
   "Hyperextensions": {
-    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hyperextensions_(Back_Extensions)/0.jpg",
-    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hyperextensions_(Back_Extensions)/1.jpg",
+    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hyperextensions_Back_Extensions/0.jpg",
+    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hyperextensions_Back_Extensions/1.jpg",
   },
   "Planche": {
     start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Plank/0.jpg",
