@@ -1,121 +1,102 @@
 import { useState } from "react";
 
 const PROGRAM_DATA = {
-  profile: { taille: "1.72m", poids: "67kg", objectif: "75kg", age: "30 ans", freq: "4x/sem" },
-  nutrition: { calories: "3000", proteines: "150g", glucides: "400g", lipides: "80g" },
+  version: "2.1",
+  profile: { taille: "1.71m", poids: "70kg", objectif: "74-75kg lean", age: "30 ans", freq: "4x/sem" },
+  nutrition: { calories: "2800-2900", proteines: "150-160g", glucides: "340-360g", lipides: "90-100g" },
   days: [
     {
       id: 1,
       title: "UPPER A",
-      subtitle: "Push + Épaisseur",
+      subtitle: "Push + Pull",
       day: "Lundi",
       color: "#e2725b",
-      totalSets: 29,
-      duration: "~70 min",
+      totalSets: 21,
+      duration: "~55 min",
       exercises: [
         {
-          name: "Développé couché barre",
+          name: "Développé couché haltères",
           muscles: "Pectoraux · Triceps · Deltoïdes ant.",
-          sets: "4 × 6-8",
-          rest: "3 min",
+          sets: "4 × 8-10",
+          rest: "2-3 min",
           priority: "compound",
           dimension: "profondeur",
-          cue: "Rétraction scapulaire, pieds ancrés au sol. Descente contrôlée 2s, toucher le bas des pectoraux. Pousser explosif.",
-          why: "Roi des mouvements pour le haut du corps. Pecs qui ressortent = profondeur de la poitrine."
+          cue: "Stretch profond en bas, grip à 45°. Rétraction scapulaire, pieds ancrés. Descente contrôlée 2s, pousser explosif.",
+          why: "Haltères = plus d'amplitude et de stabilisateurs que la barre. Pecs qui ressortent vu de profil."
         },
         {
-          name: "Rowing barre penché",
-          muscles: "Trapèzes · Rhomboïdes · Grand dorsal",
-          sets: "4 × 6-8",
-          rest: "3 min",
+          name: "Tirage vertical prise large",
+          muscles: "Grand dorsal · Teres major · Biceps",
+          sets: "4 × 8-10",
+          rest: "2 min",
+          priority: "compound",
+          dimension: "largeur",
+          cue: "Tirer les coudes vers le bas et l'arrière. Imaginer écraser une noix entre les omoplates. Jamais derrière la nuque.",
+          why: "L'exercice clé pour la LARGEUR du dos. V-taper qui donne l'illusion d'épaules plus larges."
+        },
+        {
+          name: "Rowing unilatéral haltère",
+          muscles: "Grand dorsal · Trapèzes · Rhomboïdes",
+          sets: "3 × 8-10",
+          rest: "90s",
           priority: "compound",
           dimension: "épaisseur",
-          cue: "Buste à 45°, tirer la barre vers le nombril. Serrer les omoplates 1s en haut. Ne pas tricher avec l'élan.",
-          why: "LE mouvement #1 pour l'épaisseur du dos. Trapèzes moyens + rhomboïdes = dos 3D vu de profil."
+          cue: "Genou et main sur banc, dos plat. Tirer le coude vers le plafond. Full stretch en bas, squeeze 1s en haut.",
+          why: "Amplitude maximale unilatérale. Corrige les asymétries, construit l'épaisseur du lat et des trapèzes."
         },
         {
           name: "Développé incliné haltères",
           muscles: "Pectoraux supérieurs · Deltoïdes",
-          sets: "3 × 8-10",
+          sets: "2 × 8-10",
           rest: "2 min",
           priority: "compound",
           dimension: "profondeur",
-          cue: "Banc à 30° max. Étirement complet en bas, ne pas claquer les haltères en haut. Arc de mouvement naturel.",
+          cue: "Banc à 30° max. Étirement complet en bas, arc de mouvement naturel.",
           why: "Développe le haut des pecs — crée cette ligne de séparation visible vu de profil."
-        },
-        {
-          name: "Rowing haltère unilatéral",
-          muscles: "Grand dorsal · Trapèzes · Rhomboïdes",
-          sets: "3 × 8-10/côté",
-          rest: "90s",
-          priority: "compound",
-          dimension: "épaisseur",
-          cue: "Genou et main sur banc, dos plat. Tirer le coude vers le plafond, pas vers l'arrière. Squeeze 1s en haut.",
-          why: "Amplitude maximale + charge lourde unilatérale. Corrige les asymétries, construit l'épaisseur du lat et des trapèzes."
         },
         {
           name: "Élévations latérales",
           muscles: "Deltoïdes latéraux",
-          sets: "3 × 12-15",
-          rest: "1 min",
+          sets: "4 × 12-15",
+          rest: "60s",
           priority: "isolation",
           dimension: "largeur",
           cue: "Légère inclinaison avant, auriculaires légèrement plus hauts que les pouces. Tempo lent, pas de momentum.",
-          why: "Épaules plus larges = carrure imposante vu de face. Le V-taper commence ici."
+          why: "PRIORITÉ #1 — Épaules plus larges = carrure imposante vu de face. Le V-taper commence ici."
         },
         {
           name: "Face Pull",
           muscles: "Deltoïdes post. · Trapèzes inf. · Rotateurs ext.",
-          sets: "3 × 15-20",
-          rest: "1 min",
+          sets: "2 × 15-20",
+          rest: "60s",
           priority: "posture",
           dimension: "épaisseur",
           cue: "Poulie haute, corde. Tirer vers le front avec rotation externe en fin de mouvement. Coudes hauts.",
-          why: "Arrière d'épaules développé = épaisseur visible de profil. Aussi critique pour la posture."
+          why: "Arrière d'épaules = épaisseur visible de profil. Critique pour la posture et la santé des épaules."
         },
         {
-          name: "Curl barre EZ",
-          muscles: "Biceps (courte & longue portion)",
-          sets: "3 × 10-12",
-          rest: "90s",
+          name: "Curl marteau",
+          muscles: "Brachial · Brachio-radial · Biceps",
+          sets: "2 × 10-12",
+          rest: "60s",
           priority: "isolation",
-          dimension: "profondeur",
-          cue: "Coudes collés au corps, immobiles. Phase négative contrôlée 2-3s. Pas de balancement.",
-          why: "Biceps développés = bras épais vu de côté, pas juste vu de face."
-        },
-        {
-          name: "Dips triceps",
-          muscles: "Triceps · Pectoraux inf.",
-          sets: "3 × 8-10",
-          rest: "90s",
-          priority: "compound",
-          dimension: "profondeur",
-          cue: "Buste DROIT (pas penché en avant). Descendre à 90°, pas plus. Contrôle total, pas de rebond.",
-          why: "Les triceps font 2/3 du bras. Bras épais = triceps massifs, visibles de tous les angles."
-        },
-        {
-          name: "Pullover haltère",
-          muscles: "Grand dorsal · Pectoraux · Dentelés",
-          sets: "2 × 12-15",
-          rest: "90s",
-          priority: "isolation",
-          dimension: "profondeur",
-          cue: "Allongé perpendiculaire au banc, hanches basses. Descendre l'haltère derrière la tête en gardant les bras légèrement fléchis. Étirement MAX.",
-          why: "Mouvement oublié des légendes. Expand la cage thoracique, connecte pecs et lats, crée la profondeur du torse."
+          dimension: "largeur",
+          cue: "Prise neutre (pouces vers le haut). Coudes fixes, phase négative contrôlée 2-3s.",
+          why: "Le brachial donne la largeur du bras vu de face. Souvent négligé, fait la différence."
         },
       ]
     },
     {
       id: 2,
       title: "LOWER A",
-      subtitle: "Quad Emphasis",
+      subtitle: "Quadriceps",
       day: "Mardi",
       color: "#4a90d9",
       totalSets: 20,
       duration: "~55 min",
       exercises: [
         {
-          name: "Squat barre (back squat)",
+          name: "Squat barre",
           muscles: "Quadriceps · Fessiers · Core · Érecteurs",
           sets: "4 × 6-8",
           rest: "3 min",
@@ -128,24 +109,24 @@ const PROGRAM_DATA = {
           name: "Presse à cuisses",
           muscles: "Quadriceps · Fessiers",
           sets: "3 × 10-12",
-          rest: "2.5 min",
+          rest: "2 min",
           priority: "compound",
           dimension: "complet",
           cue: "Pieds milieu de plateforme, largeur épaules. Ne JAMAIS verrouiller les genoux en haut. Amplitude complète.",
           why: "Permet de surcharger les quads sans fatiguer le bas du dos après le squat."
         },
         {
-          name: "Soulevé de terre roumain (RDL)",
+          name: "RDL barre",
           muscles: "Ischio-jambiers · Fessiers · Érecteurs",
           sets: "3 × 8-10",
-          rest: "2.5 min",
+          rest: "2 min",
           priority: "compound",
           dimension: "complet",
-          cue: "Barre le long des cuisses, charnière de hanche pure. Genoux légèrement fléchis et FIXES. Sentir l'étirement des ischios.",
-          why: "Chaîne postérieure complète. Fessiers et ischios développés = profil impressionnant."
+          cue: "BARRE le long des cuisses (plus stable que haltères). Charnière de hanche pure. Genoux légèrement fléchis et FIXES.",
+          why: "Chaîne postérieure complète. La barre glisse naturellement le long des cuisses = meilleur contrôle."
         },
         {
-          name: "Leg curl allongé",
+          name: "Leg curl",
           muscles: "Ischio-jambiers",
           sets: "3 × 10-12",
           rest: "90s",
@@ -155,70 +136,80 @@ const PROGRAM_DATA = {
           why: "Isolation pure des ischios. Équilibre quad/ischio = jambes complètes sous tous les angles."
         },
         {
-          name: "Mollets debout",
-          muscles: "Gastrocnémiens",
-          sets: "4 × 12-15",
-          rest: "1 min",
-          priority: "isolation",
+          name: "Hyperextensions",
+          muscles: "Érecteurs · Fessiers · Ischio-jambiers",
+          sets: "3 × 12-15",
+          rest: "60s",
+          priority: "compound",
           dimension: "complet",
-          cue: "Amplitude MAXIMALE : étirement complet en bas (pause 1s) + contraction max en haut (pause 1s).",
-          why: "Mollets résistants — volume + amplitude complète pour les faire grossir."
+          cue: "Descente contrôlée, remonter jusqu'à l'alignement du corps. Ne PAS hyper-étendre. Squeeze fessiers en haut.",
+          why: "OBLIGATOIRE — Renforce le bas du dos pour protéger la colonne sur squat et deadlift."
         },
         {
-          name: "Planche (gainage)",
+          name: "Planche",
           muscles: "Core · Transverse · Stabilisateurs",
-          sets: "3 × 45-60s",
-          rest: "1 min",
+          sets: "2 × 45-60s",
+          rest: "60s",
           priority: "core",
           dimension: "complet",
           cue: "Corps aligné : oreilles-épaules-hanches-chevilles. Serrer fessiers + abdos. Respirer.",
           why: "Core solide = meilleure posture + meilleure performance sur tous les composés."
+        },
+        {
+          name: "Mollets debout",
+          muscles: "Gastrocnémiens",
+          sets: "2 × 12-15",
+          rest: "60s",
+          priority: "isolation",
+          dimension: "complet",
+          cue: "Amplitude MAXIMALE : étirement complet en bas (pause 1s) + contraction max en haut (pause 1s).",
+          why: "Mollets résistants — volume + amplitude complète pour les faire grossir."
         },
       ]
     },
     {
       id: 3,
       title: "UPPER B",
-      subtitle: "Pull + Largeur",
+      subtitle: "LARGEUR",
       day: "Jeudi",
       color: "#7c5cbf",
       totalSets: 23,
       duration: "~60 min",
       exercises: [
         {
-          name: "Développé incliné barre",
-          muscles: "Pectoraux supérieurs · Deltoïdes ant. · Triceps",
-          sets: "4 × 6-8",
-          rest: "3 min",
-          priority: "compound",
-          dimension: "profondeur",
-          cue: "Banc à 30°, même setup que le couché (rétraction scapulaire, arch naturel). Descente au haut des pecs.",
-          why: "Angle différent du Jour 1 pour un développement complet et profond des pectoraux."
-        },
-        {
-          name: "T-Bar Row",
-          muscles: "Trapèzes moyens · Rhomboïdes · Lats",
-          sets: "4 × 8-10",
-          rest: "2.5 min",
-          priority: "compound",
-          dimension: "épaisseur",
-          cue: "Prise serrée ou neutre. Tirer vers le sternum, squeeze MAX des omoplates. Torse à 45°, stable.",
-          why: "Mouvement old-school pour l'épaisseur brute. Charge lourde + contraction intense = dos massif vu de profil."
-        },
-        {
           name: "Tirage vertical prise large",
           muscles: "Grand dorsal · Teres major · Biceps",
-          sets: "3 × 8-10",
+          sets: "4 × 8-10",
           rest: "2 min",
           priority: "compound",
           dimension: "largeur",
-          cue: "Tirer les coudes vers le bas et l'arrière. Imaginer écraser une noix entre les omoplates. Jamais derrière la nuque.",
-          why: "L'exercice clé pour la LARGEUR du dos. V-taper qui donne l'illusion d'épaules plus larges."
+          cue: "EN PREMIER — frais pour maximiser le V-taper. Tirer les coudes vers le bas, squeeze omoplates.",
+          why: "Jour LARGEUR = dos en premier. Grand dorsal en adduction = ce qui crée visuellement le V."
+        },
+        {
+          name: "Tirage horizontal poulie",
+          muscles: "Trapèzes moyens · Rhomboïdes · Grand dorsal",
+          sets: "3 × 10-12",
+          rest: "90s",
+          priority: "compound",
+          dimension: "épaisseur",
+          cue: "Prise neutre ou serrée. Tirer vers le nombril, squeeze MAX des omoplates 1s. Torse stable, pas de balancement.",
+          why: "Épaisseur du dos vue de profil. La poulie permet un stretch et une contraction supérieurs au rowing barre."
+        },
+        {
+          name: "Développé incliné barre",
+          muscles: "Pectoraux supérieurs · Deltoïdes ant. · Triceps",
+          sets: "3 × 6-8",
+          rest: "2-3 min",
+          priority: "compound",
+          dimension: "profondeur",
+          cue: "Banc à 30°, rétraction scapulaire, arch naturel. Descente au haut des pecs. Progression linéaire +2.5kg/séance.",
+          why: "La BARRE permet de charger plus lourd et de progresser par incréments fins. Développe le haut des pecs."
         },
         {
           name: "Développé épaules haltères",
           muscles: "Deltoïdes · Triceps · Trapèzes sup.",
-          sets: "3 × 8-10",
+          sets: "2 × 8-10",
           rest: "2 min",
           priority: "compound",
           dimension: "largeur",
@@ -226,65 +217,65 @@ const PROGRAM_DATA = {
           why: "Épaules 3D. Deltoïdes développés = largeur ET profondeur de l'épaule."
         },
         {
+          name: "Élévations latérales",
+          muscles: "Deltoïdes latéraux",
+          sets: "4 × 12-15",
+          rest: "60s",
+          priority: "isolation",
+          dimension: "largeur",
+          cue: "Légère inclinaison avant, mener avec le coude. Ne pas monter plus haut que les épaules.",
+          why: "PRIORITÉ #1 — 2ème session de la semaine. Fréquence 2x/sem = croissance optimale des deltoïdes latéraux."
+        },
+        {
           name: "Face Pull",
           muscles: "Deltoïdes post. · Trapèzes inf. · Infra-épineux",
           sets: "3 × 15-20",
-          rest: "1 min",
+          rest: "60s",
           priority: "posture",
           dimension: "épaisseur",
           cue: "Identique au Jour 1. Rotation externe en fin de mouvement. Léger, technique parfaite.",
-          why: "2ème session. Arrière d'épaules = épaisseur visible de profil, posture impeccable."
+          why: "Posture + arrière d'épaules = épaisseur de profil. Non négociable avec 5 pressings/semaine."
         },
         {
           name: "Curl incliné haltères",
           muscles: "Biceps (longue portion accentuée)",
-          sets: "3 × 10-12",
-          rest: "90s",
+          sets: "2 × 10-12",
+          rest: "60s",
           priority: "isolation",
           dimension: "profondeur",
-          cue: "Banc à 45°, bras pendants naturellement. Aucun balancement.",
-          why: "Position inclinée étire la longue portion = pic du biceps plus prononcé, bras plus impressionnant de côté."
+          cue: "Banc à 45-60°, bras pendants naturellement. Aucun balancement. Stretch max en bas.",
+          why: "Position inclinée étire la longue portion = pic du biceps plus prononcé, bras impressionnant de côté."
         },
         {
-          name: "Extensions triceps poulie haute",
-          muscles: "Triceps (3 chefs)",
-          sets: "3 × 10-12",
-          rest: "90s",
+          name: "Extension triceps overhead",
+          muscles: "Triceps (long chef accentué)",
+          sets: "2 × 10-12",
+          rest: "60s",
           priority: "isolation",
           dimension: "profondeur",
-          cue: "Coudes FIXES le long du corps. Extension complète en bas avec squeeze 1s.",
-          why: "Triceps = 2/3 du bras. Triceps épais = bras massif vu de tous les angles."
+          cue: "Poulie basse ou haltère derrière la tête. Coudes pointés vers le plafond, fixes. Extension complète.",
+          why: "Le long chef = le plus volumineux des 3 chefs du triceps. Position overhead = stretch max = croissance max."
         },
       ]
     },
     {
       id: 4,
       title: "LOWER B",
-      subtitle: "Posterior + Trapèzes",
+      subtitle: "Ischio/Fessiers",
       day: "Vendredi",
       color: "#d4a037",
-      totalSets: 23,
-      duration: "~65 min",
+      totalSets: 21,
+      duration: "~60 min",
       exercises: [
         {
-          name: "Soulevé de terre conventionnel",
-          muscles: "Chaîne postérieure · Trapèzes · Avant-bras",
-          sets: "4 × 5-6",
-          rest: "3-4 min",
+          name: "Trap bar deadlift",
+          muscles: "Chaîne postérieure · Quadriceps · Trapèzes",
+          sets: "3 × 6-8",
+          rest: "3 min",
           priority: "compound",
           dimension: "épaisseur",
-          cue: "Barre au-dessus du milieu du pied, omoplates au-dessus de la barre. Pousser le sol, dos DROIT, barre collée au corps.",
-          why: "Recrute le PLUS de masse musculaire en un mouvement. Construit l'épaisseur de tout le dos et des trapèzes."
-        },
-        {
-          name: "Squat bulgare",
-          muscles: "Quadriceps · Fessiers · Stabilisateurs",
-          sets: "3 × 8-10/jambe",
-          rest: "2 min",
-          priority: "compound",
-          dimension: "complet",
-          cue: "Grand pas en avant, pied arrière sur un banc. Genou avant ne dépasse pas les orteils. Tronc droit.",
-          why: "Unilatéral = corrige les déséquilibres. Excellent pour fessiers et stabilité."
+          cue: "PAS de conventionnel. Centre de gravité aligné. Pousser le sol, dos DROIT, bracing abdominal.",
+          why: "Même patron moteur que le deadlift, mais -20-30% de stress lombaire. Idéal pour un débutant."
         },
         {
           name: "Leg extension",
@@ -293,70 +284,83 @@ const PROGRAM_DATA = {
           rest: "90s",
           priority: "isolation",
           dimension: "complet",
-          cue: "Contraction 1s en haut, descente contrôlée. Ne PAS utiliser l'élan.",
-          why: "Finisher pour les quads. Reps élevées = pump massif = croissance."
+          cue: "AVANT le bulgare — pré-fatigue les quads. Contraction 1s en haut, descente contrôlée.",
+          why: "Placé avant le bulgare pour échauffer les quads et réduire la charge nécessaire au bulgare."
+        },
+        {
+          name: "Squat bulgare",
+          muscles: "Quadriceps · Fessiers · Stabilisateurs",
+          sets: "3 × 8-10/jambe",
+          rest: "90s",
+          priority: "compound",
+          dimension: "complet",
+          cue: "Grand pas en avant, pied arrière sur un banc. Appui mural ou TRX si besoin pour la stabilité. Tronc droit.",
+          why: "Unilatéral = corrige les déséquilibres. Excellent pour fessiers et stabilité. Progresser vers la version libre."
+        },
+        {
+          name: "Leg curl",
+          muscles: "Ischio-jambiers",
+          sets: "3 × 10-12",
+          rest: "90s",
+          priority: "isolation",
+          dimension: "complet",
+          cue: "Contraction 1s en haut, phase négative lente 2-3s. Hanches plaquées au pad.",
+          why: "Isolation pure des ischios. Complète le travail du trap bar deadlift."
         },
         {
           name: "Hip thrust",
           muscles: "Fessiers · Ischio-jambiers",
           sets: "3 × 10-12",
-          rest: "2 min",
+          rest: "90s",
           priority: "compound",
           dimension: "profondeur",
           cue: "Haut du dos sur le banc, pieds à plat. Squeeze MAX des fessiers en haut, menton rentré. Pause 1s.",
           why: "Meilleur exercice fessiers. Un physique complet vu de profil inclut des fessiers développés."
         },
         {
-          name: "Shrugs haltères",
-          muscles: "Trapèzes supérieurs",
+          name: "Hyperextensions",
+          muscles: "Érecteurs · Fessiers · Ischio-jambiers",
           sets: "3 × 12-15",
-          rest: "90s",
-          priority: "isolation",
-          dimension: "épaisseur",
-          cue: "Haltères lourds le long du corps. Monter les épaules vers les oreilles, tenir 1s en haut. Pas de rotation.",
-          why: "Trapèzes hauts = épaisseur du haut du dos visible de face ET de profil. Le 'yoke' look."
-        },
-        {
-          name: "Mollets assis",
-          muscles: "Soléaires",
-          sets: "4 × 15-20",
-          rest: "1 min",
-          priority: "isolation",
+          rest: "60s",
+          priority: "compound",
           dimension: "complet",
-          cue: "Amplitude complète. Assis = cible le soléaire (60% du volume du mollet).",
-          why: "Complète le travail debout du Jour 2 pour des mollets complets."
+          cue: "Identique au Jour 2. OBLIGATOIRE 2x/semaine pour protéger le bas du dos.",
+          why: "OBLIGATOIRE — 2ème session. Érecteurs forts = colonne protégée sur tous les composés lourds."
         },
         {
-          name: "Planche (gainage)",
-          muscles: "Core · Transverse",
-          sets: "3 × 45-60s",
-          rest: "1 min",
+          name: "Pallof press",
+          muscles: "Core · Obliques · Transverse",
+          sets: "3 × 10/côté",
+          rest: "60s",
           priority: "core",
           dimension: "complet",
-          cue: "Identique au Jour 2. Progresser en ajoutant du temps ou en levant un bras/pied.",
-          why: "2ème session core pour un tronc solide."
+          cue: "Poulie à hauteur de poitrine. Pousser les mains devant soi, résister à la rotation. Tenir 2s bras tendus.",
+          why: "ANTI-ROTATION — Le type de travail core absent de la plupart des programmes. Essentiel pour la stabilité en squat et deadlift."
         },
       ]
     }
   ],
   dimensionSummary: {
-    largeur: ["Tirage vertical (J3)", "Élévations latérales (J1)", "Développé épaules (J3)"],
-    epaisseur: ["Rowing barre (J1)", "Rowing haltère (J1)", "T-bar row (J3)", "Face pull (J1+J3)", "Deadlift (J4)", "Shrugs (J4)", "Pullover (J1)"],
-    profondeur_pecs: ["Développé couché (J1)", "Développé incliné (J1+J3)", "Pullover (J1)", "Dips (J1)"]
+    largeur: ["Tirage vertical 2×/sem (J1+J3)", "Élévations latérales 2×/sem (J1+J3)", "Développé épaules (J3)"],
+    epaisseur: ["Rowing unilatéral (J1)", "Tirage horizontal (J3)", "Face pull 2×/sem (J1+J3)", "Trap bar deadlift (J4)"],
+    profondeur_pecs: ["Développé couché haltères (J1)", "Développé incliné haltères (J1)", "Développé incliné barre (J3)"]
   },
   progression: [
-    { rule: "Quand tu fais le HAUT de la fourchette de reps sur TOUTES tes séries → ajoute du poids", detail: "+2.5kg haut du corps, +5kg bas du corps" },
+    { rule: "HAUT DU CORPS — Progression linéaire", detail: "+2.5kg par séance si tu atteins tes reps. Si tu échoues 2 séances → deload." },
+    { rule: "BAS DU CORPS — Double progression (safe)", detail: "Monte les reps dans la fourchette, puis +5kg et redescends en reps." },
+    { rule: "ISOLATION — Incréments micro", detail: "+1-2kg quand tu atteins le haut de la fourchette sur toutes les séries." },
     { rule: "Log CHAQUE séance", detail: "Exercice, poids, reps. Pas de log = pas de progression." },
-    { rule: "Deload toutes les 6-8 semaines", detail: "Réduis le poids de 40% pendant 1 semaine." },
-    { rule: "Si tu stagnes 2 semaines sur un exo", detail: "Change la variante ou ajoute 1 série. Jamais les deux." },
+    { rule: "Deload toutes les 4 semaines", detail: "3 semaines progressives + 1 semaine à -40% du poids, mêmes reps." },
   ],
   tips: [
-    { icon: "🍽️", title: "Surplus calorique", text: "3000 kcal minimum. Si tu ne grossis pas après 2 semaines → +200 kcal." },
-    { icon: "🥩", title: "Protéines", text: "150g/jour minimum (2.2g/kg). Répartis en 4-5 prises de 30-40g." },
+    { icon: "🍽️", title: "Surplus calorique", text: "2800-2900 kcal. Si <0.5kg/mois → +100-150 kcal. Si >1kg/mois → -100 kcal." },
+    { icon: "🥩", title: "Protéines", text: "150-160g/jour (2.1-2.3g/kg). Répartis en 4-5 prises de 30-40g." },
+    { icon: "🥑", title: "Lipides", text: "90-100g/jour minimum. Essentiels pour la testostérone et la récupération." },
     { icon: "😴", title: "Sommeil", text: "7-8h MINIMUM. La croissance se fait pendant le sommeil." },
     { icon: "💧", title: "Hydratation", text: "2.5-3L d'eau/jour." },
-    { icon: "⏰", title: "Timing repas", text: "Glucides + protéines 1-2h avant et après l'entraînement." },
-    { icon: "🔥", title: "Échauffement", text: "5 min cardio + 2 séries progressives avant chaque composé." },
+    { icon: "💊", title: "Créatine", text: "5g/jour tous les jours. Le seul supplément prouvé scientifiquement pour la masse." },
+    { icon: "🔥", title: "Échauffement", text: "12-15 min : 5 min cardio + mobilité + L-Fly rotations externes + séries progressives." },
+    { icon: "🚶", title: "Cardio", text: "2-3×/semaine, marche rapide 20-30 min. Objectif : rester lean, pas brûler des calories." },
   ],
   weekSchedule: [
     { day: "Lun", type: "upper", label: "Upper A" },
@@ -364,27 +368,27 @@ const PROGRAM_DATA = {
     { day: "Mer", type: "rest", label: "Repos" },
     { day: "Jeu", type: "upper", label: "Upper B" },
     { day: "Ven", type: "lower", label: "Lower B" },
-    { day: "Sam", type: "rest", label: "Repos" },
+    { day: "Sam", type: "rest", label: "Cardio" },
     { day: "Dim", type: "rest", label: "Repos" },
   ]
 };
 
 const EXERCISE_IMAGES = {
-  "Développé couché barre": {
-    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Bench_Press_-_Medium_Grip/0.jpg",
-    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Bench_Press_-_Medium_Grip/1.jpg",
+  "Développé couché haltères": {
+    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Bench_Press/0.jpg",
+    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Bench_Press/1.jpg",
   },
-  "Rowing barre penché": {
-    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bent_Over_Barbell_Row/0.jpg",
-    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bent_Over_Barbell_Row/1.jpg",
+  "Tirage vertical prise large": {
+    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Wide-Grip_Lat_Pulldown/0.jpg",
+    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Wide-Grip_Lat_Pulldown/1.jpg",
+  },
+  "Rowing unilatéral haltère": {
+    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/One-Arm_Dumbbell_Row/0.jpg",
+    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/One-Arm_Dumbbell_Row/1.jpg",
   },
   "Développé incliné haltères": {
     start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Incline_Dumbbell_Press/0.jpg",
     end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Incline_Dumbbell_Press/1.jpg",
-  },
-  "Rowing haltère unilatéral": {
-    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/One-Arm_Dumbbell_Row/0.jpg",
-    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/One-Arm_Dumbbell_Row/1.jpg",
   },
   "Élévations latérales": {
     start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Side_Lateral_Raise/0.jpg",
@@ -394,19 +398,11 @@ const EXERCISE_IMAGES = {
     start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Face_Pull/0.jpg",
     end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Face_Pull/1.jpg",
   },
-  "Curl barre EZ": {
-    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/EZ-Bar_Curl/0.jpg",
-    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/EZ-Bar_Curl/1.jpg",
+  "Curl marteau": {
+    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hammer_Curls/0.jpg",
+    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hammer_Curls/1.jpg",
   },
-  "Dips triceps": {
-    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dips_-_Triceps_Version/0.jpg",
-    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dips_-_Triceps_Version/1.jpg",
-  },
-  "Pullover haltère": {
-    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bent-Arm_Dumbbell_Pullover/0.jpg",
-    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bent-Arm_Dumbbell_Pullover/1.jpg",
-  },
-  "Squat barre (back squat)": {
+  "Squat barre": {
     start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Squat/0.jpg",
     end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Squat/1.jpg",
   },
@@ -414,33 +410,33 @@ const EXERCISE_IMAGES = {
     start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leg_Press/0.jpg",
     end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leg_Press/1.jpg",
   },
-  "Soulevé de terre roumain (RDL)": {
+  "RDL barre": {
     start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Romanian_Deadlift/0.jpg",
     end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Romanian_Deadlift/1.jpg",
   },
-  "Leg curl allongé": {
+  "Leg curl": {
     start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Lying_Leg_Curls/0.jpg",
     end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Lying_Leg_Curls/1.jpg",
+  },
+  "Hyperextensions": {
+    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hyperextensions_(Back_Extensions)/0.jpg",
+    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hyperextensions_(Back_Extensions)/1.jpg",
+  },
+  "Planche": {
+    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Plank/0.jpg",
+    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Plank/1.jpg",
   },
   "Mollets debout": {
     start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Calf_Raises/0.jpg",
     end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Calf_Raises/1.jpg",
   },
-  "Planche (gainage)": {
-    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Plank/0.jpg",
-    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Plank/1.jpg",
+  "Tirage horizontal poulie": {
+    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Cable_Rows/0.jpg",
+    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Cable_Rows/1.jpg",
   },
   "Développé incliné barre": {
     start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Incline_Bench_Press_-_Medium_Grip/0.jpg",
     end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Incline_Bench_Press_-_Medium_Grip/1.jpg",
-  },
-  "T-Bar Row": {
-    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/T-Bar_Row_with_Handle/0.jpg",
-    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/T-Bar_Row_with_Handle/1.jpg",
-  },
-  "Tirage vertical prise large": {
-    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Wide-Grip_Lat_Pulldown/0.jpg",
-    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Wide-Grip_Lat_Pulldown/1.jpg",
   },
   "Développé épaules haltères": {
     start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Shoulder_Press/0.jpg",
@@ -450,33 +446,29 @@ const EXERCISE_IMAGES = {
     start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Incline_Dumbbell_Curl/0.jpg",
     end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Incline_Dumbbell_Curl/1.jpg",
   },
-  "Extensions triceps poulie haute": {
-    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Triceps_Pushdown/0.jpg",
-    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Triceps_Pushdown/1.jpg",
+  "Extension triceps overhead": {
+    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Dumbbell_Triceps_Extension/0.jpg",
+    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Dumbbell_Triceps_Extension/1.jpg",
   },
-  "Soulevé de terre conventionnel": {
+  "Trap bar deadlift": {
     start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Deadlift/0.jpg",
     end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Deadlift/1.jpg",
-  },
-  "Squat bulgare": {
-    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Split_Squat_with_Dumbbells/0.jpg",
-    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Split_Squat_with_Dumbbells/1.jpg",
   },
   "Leg extension": {
     start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leg_Extensions/0.jpg",
     end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leg_Extensions/1.jpg",
   },
+  "Squat bulgare": {
+    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Split_Squat_with_Dumbbells/0.jpg",
+    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Split_Squat_with_Dumbbells/1.jpg",
+  },
   "Hip thrust": {
     start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Hip_Thrust/0.jpg",
     end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Hip_Thrust/1.jpg",
   },
-  "Shrugs haltères": {
-    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Shrug/0.jpg",
-    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Shrug/1.jpg",
-  },
-  "Mollets assis": {
-    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Calf_Raise/0.jpg",
-    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Seated_Calf_Raise/1.jpg",
+  "Pallof press": {
+    start: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Pallof_Press_With_Rotation/0.jpg",
+    end: "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Pallof_Press_With_Rotation/1.jpg",
   },
 };
 
@@ -535,7 +527,7 @@ export default function ProgrammeMasse() {
             boxShadow: "0 0 8px rgba(80,200,120,0.5)"
           }} />
           <span style={{ fontSize: 11, color: "#71717a", letterSpacing: 2, textTransform: "uppercase", fontWeight: 600 }}>
-            Programme actif
+            Programme actif · V2.1
           </span>
         </div>
         <h1 style={{
@@ -546,10 +538,10 @@ export default function ProgrammeMasse() {
           marginBottom: 4,
           color: "#fafafa",
         }}>
-          Prise de Masse
+          Quiet Luxury Sportif
         </h1>
         <p style={{ color: "#71717a", fontSize: 14, fontWeight: 500 }}>
-          Largeur + Épaisseur · 4 jours · 67→75kg
+          V-Taper optimisé · 4 jours · 70→74-75kg lean
         </p>
 
         {/* Dimension badges */}
@@ -573,10 +565,10 @@ export default function ProgrammeMasse() {
         {/* Macros */}
         <div style={{ display: "flex", gap: 8, marginTop: 16, flexWrap: "wrap" }}>
           {[
-            { label: "Calories", value: "3000", unit: "kcal", color: "#e2725b" },
-            { label: "Protéines", value: "150", unit: "g", color: "#4a90d9" },
-            { label: "Glucides", value: "400", unit: "g", color: "#d4a037" },
-            { label: "Lipides", value: "80", unit: "g", color: "#7c5cbf" },
+            { label: "Calories", value: "2850", unit: "kcal", color: "#e2725b" },
+            { label: "Protéines", value: "155", unit: "g", color: "#4a90d9" },
+            { label: "Glucides", value: "350", unit: "g", color: "#d4a037" },
+            { label: "Lipides", value: "95", unit: "g", color: "#7c5cbf" },
           ].map((m, i) => (
             <div key={i} style={{
               flex: "1 1 calc(25% - 6px)",
@@ -861,7 +853,7 @@ export default function ProgrammeMasse() {
                         borderLeft: `3px solid ${currentDay.color}`,
                       }}>
                         <div style={{ fontSize: 9, fontWeight: 700, color: currentDay.color, letterSpacing: 1, textTransform: "uppercase", marginBottom: 4 }}>
-                          ⚡ Exécution
+                          Exécution
                         </div>
                         <div style={{ fontSize: 12, color: "#a1a1aa", lineHeight: 1.5 }}>
                           {ex.cue}
@@ -876,7 +868,7 @@ export default function ProgrammeMasse() {
                         borderLeft: `3px solid ${ds.color}`,
                       }}>
                         <div style={{ fontSize: 9, fontWeight: 700, color: ds.color, letterSpacing: 1, textTransform: "uppercase", marginBottom: 4 }}>
-                          💡 {ds.label} — Pourquoi
+                          {ds.label} — Pourquoi
                         </div>
                         <div style={{ fontSize: 12, color: "#a1a1aa", lineHeight: 1.5 }}>
                           {ex.why}
@@ -950,29 +942,29 @@ export default function ProgrammeMasse() {
 
           {/* Exercise breakdown by dimension */}
           {[
-            { 
-              title: "Épaisseur du dos", 
-              color: "#e2725b", 
-              exercises: ["Rowing barre penché (J1)", "Rowing haltère (J1)", "T-bar row (J3)", "Deadlift (J4)", "Shrugs (J4)"],
-              note: "5 mouvements dédiés — priorité #1"
+            {
+              title: "Largeur (V-taper)",
+              color: "#4a90d9",
+              exercises: ["Tirage vertical 2×/sem (J1+J3)", "Élévations latérales 2×/sem (J1+J3)", "Développé épaules (J3)"],
+              note: "PRIORITÉ #1 et #2 — 8 sér. tirage vertical + 8 sér. latérales/sem"
             },
-            { 
-              title: "Largeur (V-taper)", 
-              color: "#4a90d9", 
-              exercises: ["Tirage vertical (J3)", "Élévations latérales (J1)", "Développé épaules (J3)"],
-              note: "3 mouvements stratégiques"
+            {
+              title: "Épaisseur du dos",
+              color: "#e2725b",
+              exercises: ["Rowing unilatéral (J1)", "Tirage horizontal poulie (J3)", "Face pull 2×/sem (J1+J3)", "Trap bar deadlift (J4)"],
+              note: "6 séries rowing + 5 séries face pull"
             },
-            { 
-              title: "Profondeur pecs", 
-              color: "#7c5cbf", 
-              exercises: ["Développé couché (J1)", "Développé incliné (J1+J3)", "Pullover (J1)", "Dips (J1)"],
-              note: "Pecs bombés, pas plats"
+            {
+              title: "Profondeur pecs",
+              color: "#7c5cbf",
+              exercises: ["Dév. couché haltères (J1)", "Dév. incliné haltères (J1)", "Dév. incliné barre (J3)"],
+              note: "9 séries/sem — équilibré, pas surdosé"
             },
-            { 
-              title: "Posture & équilibre", 
-              color: "#50c878", 
-              exercises: ["Face Pull 2×/sem (J1+J3)", "Core/Planche 2×/sem (J2+J4)"],
-              note: "Prévention + esthétique"
+            {
+              title: "Posture & prévention",
+              color: "#50c878",
+              exercises: ["L-Fly rotations 2×/sem (échauffement)", "Face Pull 2×/sem", "Hyperextensions 2×/sem", "Pallof press (J4)", "Planche (J2)"],
+              note: "Rotateurs, bas du dos, core anti-rotation"
             },
           ].map((section, i) => (
             <div key={i} style={{
@@ -1017,25 +1009,33 @@ export default function ProgrammeMasse() {
             borderRadius: 12, border: "1px solid #27272a",
           }}>
             <div style={{ fontSize: 12, fontWeight: 700, color: "#fafafa", marginBottom: 10 }}>
-              Volume hebdomadaire par zone
+              Volume hebdomadaire — ~80 séries/sem
             </div>
             {[
-              { zone: "Dos (total)", sets: "18 séries", color: "#e2725b" },
-              { zone: "Pectoraux", sets: "14 séries", color: "#7c5cbf" },
-              { zone: "Épaules", sets: "12 séries", color: "#4a90d9" },
-              { zone: "Bras", sets: "12 séries", color: "#d4a037" },
-              { zone: "Jambes", sets: "26 séries", color: "#50c878" },
+              { zone: "Deltoïdes latéraux", sets: "8 séries", color: "#4a90d9", note: "★★★ #1" },
+              { zone: "Dos largeur (vertical)", sets: "8 séries", color: "#4a90d9", note: "★★★ #2" },
+              { zone: "Pectoraux", sets: "9 séries", color: "#7c5cbf", note: "★★" },
+              { zone: "Dos épaisseur (rowing)", sets: "6 séries", color: "#e2725b", note: "★★" },
+              { zone: "Deltoïdes post.", sets: "5 séries", color: "#50c878", note: "★" },
+              { zone: "Biceps", sets: "4 séries", color: "#d4a037", note: "★" },
+              { zone: "Triceps", sets: "4 + pressing", color: "#d4a037", note: "★" },
+              { zone: "Quadriceps", sets: "10 séries", color: "#4a90d9", note: "★★" },
+              { zone: "Ischio-jambiers", sets: "9 séries", color: "#e2725b", note: "★★" },
+              { zone: "Core", sets: "6-8 séries", color: "#50c878", note: "★" },
             ].map((z, i) => (
               <div key={i} style={{
                 display: "flex", alignItems: "center", justifyContent: "space-between",
-                padding: "6px 0",
-                borderBottom: i < 4 ? "1px solid #27272a" : "none",
+                padding: "5px 0",
+                borderBottom: i < 9 ? "1px solid #27272a" : "none",
               }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                   <div style={{ width: 8, height: 8, borderRadius: "50%", background: z.color }} />
-                  <span style={{ fontSize: 12, color: "#a1a1aa" }}>{z.zone}</span>
+                  <span style={{ fontSize: 11, color: "#a1a1aa" }}>{z.zone}</span>
                 </div>
-                <span style={{ fontSize: 12, fontWeight: 600, color: z.color }}>{z.sets}</span>
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{ fontSize: 10, color: "#52525b" }}>{z.note}</span>
+                  <span style={{ fontSize: 11, fontWeight: 600, color: z.color, minWidth: 65, textAlign: "right" }}>{z.sets}</span>
+                </div>
               </div>
             ))}
           </div>
@@ -1064,6 +1064,28 @@ export default function ProgrammeMasse() {
             </div>
           </div>
 
+          {/* Progression system */}
+          <div style={{
+            background: "#18181b",
+            borderRadius: 12,
+            border: "1px solid #27272a",
+            padding: "14px 16px",
+            marginBottom: 16,
+          }}>
+            <div style={{ fontSize: 14, fontWeight: 600, color: "#fafafa", marginBottom: 10 }}>
+              Système de progression V2.1
+            </div>
+            {d.progression.map((p, i) => (
+              <div key={i} style={{
+                padding: "8px 0",
+                borderBottom: i < d.progression.length - 1 ? "1px solid #27272a" : "none",
+              }}>
+                <div style={{ fontSize: 12, fontWeight: 600, color: "#fafafa" }}>{p.rule}</div>
+                <div style={{ fontSize: 11, color: "#71717a", marginTop: 2 }}>{p.detail}</div>
+              </div>
+            ))}
+          </div>
+
           {d.tips.map((tip, i) => (
             <div key={i} style={{
               background: "#18181b",
@@ -1082,29 +1104,29 @@ export default function ProgrammeMasse() {
             </div>
           ))}
 
-          {/* Ramadan timing */}
+          {/* Échauffement */}
           <div style={{
             marginTop: 16,
-            background: "#18181b", borderRadius: 12, border: "1px solid #d4a03730",
+            background: "#18181b", borderRadius: 12, border: "1px solid #e2725b30",
             padding: 16,
           }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: "#d4a037", letterSpacing: 1, textTransform: "uppercase", marginBottom: 12 }}>
-              🌙 Planning Ramadan (Ftour 18h)
+            <div style={{ fontSize: 11, fontWeight: 700, color: "#e2725b", letterSpacing: 1, textTransform: "uppercase", marginBottom: 12 }}>
+              Échauffement obligatoire (12-15 min)
             </div>
             {[
-              { time: "18h00", label: "Ftour léger", desc: "Dattes, eau, soupe" },
-              { time: "19h30", label: "Séance", desc: "~60 min" },
-              { time: "20h30", label: "Repas principal", desc: "Protéines + glucides ++" },
-              { time: "23h00", label: "Collation", desc: "Sandwich, fruits secs" },
-              { time: "04h00", label: "Suhoor", desc: "Œufs, avoine, eau ++" },
+              { step: "1", label: "Cardio léger", desc: "5 min — Rameur ou vélo", type: "upper+lower" },
+              { step: "2", label: "Mobilité", desc: "3 min — Épaules (Upper) ou Hanches (Lower)", type: "upper+lower" },
+              { step: "3", label: "L-Fly rotations externes", desc: "2×15 — NON NÉGOCIABLE", type: "upper" },
+              { step: "4", label: "Activation", desc: "2 min — Band pull-aparts (Upper) ou Glute bridges + dead bugs (Lower)", type: "upper+lower" },
+              { step: "5", label: "Séries progressives", desc: "5 min — Vide → 50% → 70% → 85%", type: "upper+lower" },
             ].map((m, i) => (
               <div key={i} style={{
                 display: "flex", gap: 10, alignItems: "center",
                 padding: "8px 0",
                 borderBottom: i < 4 ? "1px solid #27272a" : "none",
               }}>
-                <div style={{ minWidth: 50, fontSize: 12, fontWeight: 700, color: "#d4a037" }}>
-                  {m.time}
+                <div style={{ minWidth: 24, height: 24, borderRadius: "50%", background: "#e2725b20", border: "1px solid #e2725b40", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 700, color: "#e2725b" }}>
+                  {m.step}
                 </div>
                 <div style={{ flex: 1 }}>
                   <span style={{ fontSize: 12, fontWeight: 600, color: "#fafafa" }}>{m.label}</span>
@@ -1112,6 +1134,34 @@ export default function ProgrammeMasse() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Routine maison */}
+          <div style={{
+            marginTop: 16,
+            background: "#18181b", borderRadius: 12, border: "1px solid #50c87830",
+            padding: 16,
+          }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: "#50c878", letterSpacing: 1, textTransform: "uppercase", marginBottom: 12 }}>
+              Routine maison (jours off) — 5-10 min
+            </div>
+            {[
+              { label: "Planche", desc: "3 × 45-60s" },
+              { label: "Planche latérale", desc: "2 × 30s/côté" },
+              { label: "Dead bug", desc: "2 × 10/côté" },
+            ].map((m, i) => (
+              <div key={i} style={{
+                display: "flex", justifyContent: "space-between", alignItems: "center",
+                padding: "6px 0",
+                borderBottom: i < 2 ? "1px solid #27272a" : "none",
+              }}>
+                <span style={{ fontSize: 12, color: "#fafafa" }}>{m.label}</span>
+                <span style={{ fontSize: 12, fontWeight: 600, color: "#50c878" }}>{m.desc}</span>
+              </div>
+            ))}
+            <div style={{ fontSize: 10, color: "#52525b", marginTop: 8, fontStyle: "italic" }}>
+              Objectif : rattraper le core. Faire tous les jours si possible.
+            </div>
           </div>
         </div>
       )}
@@ -1126,11 +1176,11 @@ export default function ProgrammeMasse() {
         textAlign: "center",
       }}>
         <div style={{ fontSize: 11, color: "#52525b", lineHeight: 1.6 }}>
-          Programme Largeur + Épaisseur
+          Programme Quiet Luxury Sportif — V2.1
           <br />
-          67kg → 75kg · Semaines 1-12
+          70kg → 74-75kg lean · ~80 séries/sem
           <br />
-          <span style={{ color: "#3f3f46" }}>Ajuste les charges avec ton coach</span>
+          <span style={{ color: "#3f3f46" }}>Optimisé V-Taper · Progression mixte</span>
         </div>
       </div>
     </div>
