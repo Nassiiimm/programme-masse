@@ -1,9 +1,10 @@
 const tabs = [
-  { id: "programme", label: "Programme", icon: "📋" },
+  { id: "programme", label: "Prog", icon: "📋" },
   { id: "log", label: "Log", icon: "🏋️" },
   { id: "stats", label: "Stats", icon: "📊" },
   { id: "nutrition", label: "Nutri", icon: "🍽️" },
   { id: "mesures", label: "Mesures", icon: "📐" },
+  { id: "alternatives", label: "Exos", icon: "🔄" },
 ];
 
 export default function BottomNav({ activeTab, setActiveTab }) {

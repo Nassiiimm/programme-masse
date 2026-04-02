@@ -315,47 +315,27 @@ export default function ProgrammeMasse() {
                       marginTop: 0,
                       paddingTop: 12,
                     }}>
-                      {/* Exercise illustration */}
-                      {EXERCISE_IMAGES[ex.name] && (
+                      {/* Exercise GIF illustration */}
+                      {EXERCISE_IMAGES[ex.name]?.gif && (
                         <div style={{
-                          display: "flex", gap: 8, marginBottom: 10,
+                          marginBottom: 10,
                           background: "#0a0a0f",
                           borderRadius: 10,
-                          padding: 10,
+                          padding: 8,
                           border: "1px solid #27272a",
-                          justifyContent: "center",
-                          alignItems: "center",
+                          textAlign: "center",
                         }}>
-                          <div style={{ flex: 1, textAlign: "center" }}>
-                            <img
-                              src={EXERCISE_IMAGES[ex.name].start}
-                              alt={`${ex.name} - position départ`}
-                              style={{
-                                width: "100%",
-                                maxHeight: 160,
-                                objectFit: "contain",
-                                borderRadius: 6,
-                              }}
-                            />
-                            <div style={{ fontSize: 9, color: "#52525b", marginTop: 4, fontWeight: 600 }}>DÉPART</div>
-                          </div>
-                          <div style={{
-                            fontSize: 16, color: "#3f3f46", fontWeight: 700,
-                            flexShrink: 0,
-                          }}>→</div>
-                          <div style={{ flex: 1, textAlign: "center" }}>
-                            <img
-                              src={EXERCISE_IMAGES[ex.name].end}
-                              alt={`${ex.name} - position finale`}
-                              style={{
-                                width: "100%",
-                                maxHeight: 160,
-                                objectFit: "contain",
-                                borderRadius: 6,
-                              }}
-                            />
-                            <div style={{ fontSize: 9, color: "#52525b", marginTop: 4, fontWeight: 600 }}>FIN</div>
-                          </div>
+                          <img
+                            src={EXERCISE_IMAGES[ex.name].gif}
+                            alt={ex.name}
+                            loading="lazy"
+                            style={{
+                              width: "100%",
+                              maxHeight: 200,
+                              objectFit: "contain",
+                              borderRadius: 8,
+                            }}
+                          />
                         </div>
                       )}
 

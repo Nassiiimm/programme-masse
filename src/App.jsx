@@ -7,6 +7,7 @@ import LogPage from "./pages/LogPage";
 import StatsPage from "./pages/StatsPage";
 import NutritionPage from "./pages/NutritionPage";
 import MeasurementsPage from "./pages/MeasurementsPage";
+import AlternativesPage from "./pages/AlternativesPage";
 
 function App() {
   const [activeTab, setActiveTab] = useState("log");
@@ -38,6 +39,7 @@ function App() {
       {activeTab === "stats" && <StatsPage />}
       {activeTab === "nutrition" && <NutritionPage />}
       {activeTab === "mesures" && <MeasurementsPage />}
+      {activeTab === "alternatives" && <AlternativesPage />}
 
       <RestTimer seconds={timer.seconds} isRunning={timer.isRunning} onStop={timer.stop} />
       <BottomNav activeTab={activeTab} setActiveTab={setActiveTab} />
