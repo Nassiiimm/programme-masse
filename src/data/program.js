@@ -374,19 +374,19 @@ export const PROGRAM_DATA = {
 // GIFs 3D animés (ExerciseDB open source — personnages 3D rendus)
 export const EXERCISE_IMAGES = {
   "Développé couché haltères": { gif: "https://static.exercisedb.dev/media/SpYC0Kp.gif" },
-  "Tirage vertical prise large": { gif: "https://static.exercisedb.dev/media/LEprlgG.gif" },
+  "Tirage vertical prise large": { gif: "https://static.exercisedb.dev/media/rkg41Fb.gif" },
   "Rowing unilatéral haltère": { gif: "https://static.exercisedb.dev/media/C0MA9bC.gif" },
   "Développé incliné haltères": { gif: "https://static.exercisedb.dev/media/PG1kcIb.gif" },
   "Élévations latérales": { gif: "https://static.exercisedb.dev/media/DsgkuIt.gif" },
-  "Face Pull": { gif: "https://static.exercisedb.dev/media/SpsOSXk.gif" },
-  "Curl marteau": { gif: "https://static.exercisedb.dev/media/aee2Fcj.gif" },
+  "Face Pull": { gif: "https://static.exercisedb.dev/media/ZfyAGhK.gif" },
+  "Curl marteau": { gif: "https://static.exercisedb.dev/media/GNhAeJ0.gif" },
   "Squat barre": { gif: "https://static.exercisedb.dev/media/W9pFVv1.gif" },
   "Presse à cuisses": { gif: "https://static.exercisedb.dev/media/10Z2DXU.gif" },
   "RDL barre": { gif: "https://static.exercisedb.dev/media/wQ2c4XD.gif" },
   "Leg curl": { gif: "https://static.exercisedb.dev/media/17lJ1kr.gif" },
   "Hyperextensions": { gif: "https://static.exercisedb.dev/media/zkgRrbK.gif" },
   "Planche": { gif: "https://static.exercisedb.dev/media/VBAWRPG.gif" },
-  "Mollets debout": { gif: "https://static.exercisedb.dev/media/6HiHHe0.gif" },
+  "Mollets debout": { gif: "https://static.exercisedb.dev/media/8ozhUIZ.gif" },
   "Tirage horizontal poulie": { gif: "https://static.exercisedb.dev/media/fUBheHs.gif" },
   "Développé incliné barre": { gif: "https://static.exercisedb.dev/media/3TZduzM.gif" },
   "Développé épaules haltères": { gif: "https://static.exercisedb.dev/media/znQUdHY.gif" },
@@ -395,7 +395,7 @@ export const EXERCISE_IMAGES = {
   "Trap bar deadlift": { gif: "https://static.exercisedb.dev/media/jQGwmxN.gif" },
   "Leg extension": { gif: "https://static.exercisedb.dev/media/my33uHU.gif" },
   "Squat bulgare": { gif: "https://static.exercisedb.dev/media/9E25EOx.gif" },
-  "Hip thrust": { gif: "https://static.exercisedb.dev/media/Pjbc0Kt.gif" },
+  "Hip thrust": { gif: "https://static.exercisedb.dev/media/f7Y9eDZ.gif" },
   "Pallof press": { gif: "https://static.exercisedb.dev/media/G7PXMlT.gif" },
 };
 
