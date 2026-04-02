@@ -371,32 +371,32 @@ export const PROGRAM_DATA = {
   ]
 };
 
-// GIFs animés (Tenor) — bien plus visuels que les images statiques
+// GIFs 3D animés (ExerciseDB open source — personnages 3D rendus)
 export const EXERCISE_IMAGES = {
-  "Développé couché haltères": { gif: "https://media1.tenor.com/m/ZKkJF-xtbhwAAAAC/dumbbell-press-exercise.gif" },
-  "Tirage vertical prise large": { gif: "https://media1.tenor.com/m/RZIEq_o7N5gAAAAC/lat-pulldown-exercise.gif" },
-  "Rowing unilatéral haltère": { gif: "https://media1.tenor.com/m/r7i-N0Y1uUQAAAAC/dumbbell-row-workout.gif" },
-  "Développé incliné haltères": { gif: "https://media1.tenor.com/m/9T1dx6LbbgwAAAAC/2inclne-dumbel-press.gif" },
-  "Élévations latérales": { gif: "https://media1.tenor.com/m/l5q6kShHK68AAAAC/lateralraises-shoulders.gif" },
-  "Face Pull": { gif: "https://media1.tenor.com/m/FGsBtkQCchwAAAAC/face-pull.gif" },
-  "Curl marteau": { gif: "https://media1.tenor.com/m/XJZa937El1cAAAAC/7altarnate-hummer-curl.gif" },
-  "Squat barre": { gif: "https://media1.tenor.com/m/Re3T3B66V9UAAAAC/barbellsquats-gymexercisesmen.gif" },
-  "Presse à cuisses": { gif: "https://media1.tenor.com/m/FoIEqZY1mSgAAAAC/leg-press-workout.gif" },
-  "RDL barre": { gif: "https://media1.tenor.com/m/VSY6K8y4zEIAAAAC/romanian-deadlift-exercise.gif" },
-  "Leg curl": { gif: "https://media1.tenor.com/m/oWFSihhh8JgAAAAC/leg-curl-machine.gif" },
-  "Hyperextensions": { gif: "https://media1.tenor.com/m/Fsu8AmbXPl0AAAAC/back-extension.gif" },
-  "Planche": { gif: "https://media1.tenor.com/m/6SOetkNbfakAAAAC/plank-abs.gif" },
-  "Mollets debout": { gif: "https://media1.tenor.com/m/JYsGi3a3Y_4AAAAC/single-leg-calf-raise.gif" },
-  "Tirage horizontal poulie": { gif: "https://media1.tenor.com/m/2NYcfHsikFcAAAAC/seated-row.gif" },
-  "Développé incliné barre": { gif: "https://media1.tenor.com/m/2PdWlCSxHh4AAAAC/incline-barbell-press.gif" },
-  "Développé épaules haltères": { gif: "https://media1.tenor.com/m/ae4epKVKBh8AAAAC/shoulderpress-dumbbells.gif" },
-  "Curl incliné haltères": { gif: "https://media1.tenor.com/m/j6wkDQurcm8AAAAC/incline-biceps-curl.gif" },
-  "Extension triceps overhead": { gif: "https://media1.tenor.com/m/V3J-mg9gH0kAAAAC/seated-dumbbell-triceps-extension.gif" },
-  "Trap bar deadlift": { gif: "https://media1.tenor.com/m/iE9jZVgeO8YAAAAC/american-sniper-bradley-cooper.gif" },
-  "Leg extension": { gif: "https://media1.tenor.com/m/L-taJvA94kQAAAAC/leg-extension.gif" },
-  "Squat bulgare": { gif: "https://media1.tenor.com/m/LLitiHgjM2gAAAAC/dumbbell-bulgarian-split-squat-split-squat.gif" },
-  "Hip thrust": { gif: "https://media1.tenor.com/m/HYF_04fu5rMAAAAC/hip-barbell.gif" },
-  "Pallof press": { gif: "https://media1.tenor.com/m/Gyi2X-d3keYAAAAC/cable-front-raise.gif" },
+  "Développé couché haltères": { gif: "https://static.exercisedb.dev/media/SpYC0Kp.gif" },
+  "Tirage vertical prise large": { gif: "https://static.exercisedb.dev/media/LEprlgG.gif" },
+  "Rowing unilatéral haltère": { gif: "https://static.exercisedb.dev/media/C0MA9bC.gif" },
+  "Développé incliné haltères": { gif: "https://static.exercisedb.dev/media/PG1kcIb.gif" },
+  "Élévations latérales": { gif: "https://static.exercisedb.dev/media/DsgkuIt.gif" },
+  "Face Pull": { gif: "https://static.exercisedb.dev/media/SpsOSXk.gif" },
+  "Curl marteau": { gif: "https://static.exercisedb.dev/media/aee2Fcj.gif" },
+  "Squat barre": { gif: "https://static.exercisedb.dev/media/W9pFVv1.gif" },
+  "Presse à cuisses": { gif: "https://static.exercisedb.dev/media/10Z2DXU.gif" },
+  "RDL barre": { gif: "https://static.exercisedb.dev/media/wQ2c4XD.gif" },
+  "Leg curl": { gif: "https://static.exercisedb.dev/media/17lJ1kr.gif" },
+  "Hyperextensions": { gif: "https://static.exercisedb.dev/media/zkgRrbK.gif" },
+  "Planche": { gif: "https://static.exercisedb.dev/media/VBAWRPG.gif" },
+  "Mollets debout": { gif: "https://static.exercisedb.dev/media/6HiHHe0.gif" },
+  "Tirage horizontal poulie": { gif: "https://static.exercisedb.dev/media/fUBheHs.gif" },
+  "Développé incliné barre": { gif: "https://static.exercisedb.dev/media/3TZduzM.gif" },
+  "Développé épaules haltères": { gif: "https://static.exercisedb.dev/media/znQUdHY.gif" },
+  "Curl incliné haltères": { gif: "https://static.exercisedb.dev/media/F3xgbjF.gif" },
+  "Extension triceps overhead": { gif: "https://static.exercisedb.dev/media/2IxROQ1.gif" },
+  "Trap bar deadlift": { gif: "https://static.exercisedb.dev/media/jQGwmxN.gif" },
+  "Leg extension": { gif: "https://static.exercisedb.dev/media/my33uHU.gif" },
+  "Squat bulgare": { gif: "https://static.exercisedb.dev/media/9E25EOx.gif" },
+  "Hip thrust": { gif: "https://static.exercisedb.dev/media/Pjbc0Kt.gif" },
+  "Pallof press": { gif: "https://static.exercisedb.dev/media/G7PXMlT.gif" },
 };
 
 // Exercices alternatifs (hors programme) — substitutions et compléments
@@ -407,7 +407,7 @@ export const ALTERNATIVE_EXERCISES = [
     exercises: [
       {
         name: "Développé couché barre",
-        gif: "https://media1.tenor.com/m/UNRPPrRxsmcAAAAC/bench-press-lifting-weights.gif",
+        gif: "https://static.exercisedb.dev/media/EIeI8Vf.gif",
         muscles: "Pectoraux · Triceps · Deltoïdes ant.",
         replaces: "Développé couché haltères",
         why: "Permet de charger plus lourd et de progresser par incréments de 2.5 kg. Nécessite un spotter ou un rack avec safety bars.",
@@ -415,7 +415,7 @@ export const ALTERNATIVE_EXERCISES = [
       },
       {
         name: "Écarté haltères (fly)",
-        gif: "https://media1.tenor.com/m/aeiQWNFbCL8AAAAC/chest-fly-dumbells.gif",
+        gif: "https://static.exercisedb.dev/media/yz9nUhF.gif",
         muscles: "Pectoraux (isolation pure)",
         replaces: "Aucun — complément",
         why: "Isole l'adduction horizontale pure. Le stretch en bas est excellent pour l'hypertrophie. Complète les développés.",
@@ -429,7 +429,7 @@ export const ALTERNATIVE_EXERCISES = [
     exercises: [
       {
         name: "Tractions (Pull-ups)",
-        gif: "https://media1.tenor.com/m/Lq4uADWXzpUAAAAC/pull-ups-working-out.gif",
+        gif: "https://static.exercisedb.dev/media/lBDjFxJ.gif",
         muscles: "Grand dorsal · Biceps · Teres major",
         replaces: "Tirage vertical prise large",
         why: "Le roi des exercices pour le dos en largeur. Plus exigeant que le tirage vertical car tu soulèves ton propre poids. Meilleure activation musculaire.",
@@ -443,7 +443,7 @@ export const ALTERNATIVE_EXERCISES = [
     exercises: [
       {
         name: "Élévations latérales câble",
-        gif: "https://media1.tenor.com/m/sxbft6ZWeK8AAAAC/cable-lateral-raise-single-arm.gif",
+        gif: "https://static.exercisedb.dev/media/wEulIzp.gif",
         muscles: "Deltoïdes latéraux",
         replaces: "Élévations latérales haltères",
         why: "Tension constante sur toute l'amplitude (les haltères ont un 'dead zone' en bas). Meilleur stimulus en position basse.",
@@ -451,7 +451,7 @@ export const ALTERNATIVE_EXERCISES = [
       },
       {
         name: "Oiseau (rear delt fly)",
-        gif: "https://media1.tenor.com/m/bmwYCJmFlZwAAAAC/rear-delt-fly-dumbells.gif",
+        gif: "https://static.exercisedb.dev/media/EAs3xL9.gif",
         muscles: "Deltoïdes postérieurs · Rhomboïdes",
         replaces: "Face Pull (alternative)",
         why: "Isole les deltoïdes postérieurs sous un angle différent du face pull. Complémentaire, pas un remplacement.",
@@ -465,7 +465,7 @@ export const ALTERNATIVE_EXERCISES = [
     exercises: [
       {
         name: "Curl barre droite/EZ",
-        gif: "https://media1.tenor.com/m/xQJ4fZr6spUAAAAC/bicep-curl-biceps-curl.gif",
+        gif: "https://static.exercisedb.dev/media/4dUn2iv.gif",
         muscles: "Biceps (courte + longue portion)",
         replaces: "Curl marteau ou Curl incliné",
         why: "Prise en supination = recrutement maximal du biceps brachial. La barre EZ réduit le stress sur les poignets.",
@@ -473,7 +473,7 @@ export const ALTERNATIVE_EXERCISES = [
       },
       {
         name: "Extension triceps poulie haute",
-        gif: "https://media1.tenor.com/m/oXnAyzlDfNMAAAAC/triceps-pushdown-workout.gif",
+        gif: "https://static.exercisedb.dev/media/gAwDzB3.gif",
         muscles: "Triceps (3 chefs)",
         replaces: "Extension triceps overhead",
         why: "Plus simple techniquement. Cible davantage le chef latéral et médial (vs le long chef pour l'overhead).",
@@ -487,7 +487,7 @@ export const ALTERNATIVE_EXERCISES = [
     exercises: [
       {
         name: "Hack squat",
-        gif: "https://media1.tenor.com/m/y81Kdu2bocMAAAAC/hack-machine-treino-mestre.gif",
+        gif: "https://static.exercisedb.dev/media/Qa55kX1.gif",
         muscles: "Quadriceps · Fessiers",
         replaces: "Presse à cuisses",
         why: "Plus grande amplitude que la presse. Le dos est supporté donc pas de stress lombaire. Excellent pour les quads.",
@@ -495,7 +495,7 @@ export const ALTERNATIVE_EXERCISES = [
       },
       {
         name: "Fentes marchées",
-        gif: "https://media1.tenor.com/m/q_JXU0_YVFUAAAAC/walking-lunges.gif",
+        gif: "https://static.exercisedb.dev/media/IZVHb27.gif",
         muscles: "Quadriceps · Fessiers · Stabilisateurs",
         replaces: "Squat bulgare",
         why: "Même pattern unilatéral mais plus facile pour l'équilibre. Bon tremplin vers le bulgare.",
@@ -509,7 +509,7 @@ export const ALTERNATIVE_EXERCISES = [
     exercises: [
       {
         name: "Crunch câble (rope crunch)",
-        gif: "https://media1.tenor.com/m/Ja2_H5v54PQAAAAC/rope-crunch.gif",
+        gif: "https://static.exercisedb.dev/media/WW95auq.gif",
         muscles: "Grand droit (abdominaux)",
         replaces: "Planche (complément)",
         why: "La planche est de l'isométrie (anti-extension). Le crunch câble est du dynamique (flexion). Les deux sont complémentaires. Le câble permet de progresser en charge.",
@@ -517,7 +517,7 @@ export const ALTERNATIVE_EXERCISES = [
       },
       {
         name: "Landmine press",
-        gif: "https://media1.tenor.com/m/sJ1xs4-DxfAAAAAC/landmine-press-stephen-farrelly.gif",
+        gif: "https://static.exercisedb.dev/media/eXMFHww.gif",
         muscles: "Deltoïdes · Pectoraux sup. · Core",
         replaces: "Développé épaules (variante)",
         why: "Mouvement hybride pressing + anti-rotation. L'arc de mouvement est plus naturel pour les épaules sensibles. Travaille le core en stabilisation.",
